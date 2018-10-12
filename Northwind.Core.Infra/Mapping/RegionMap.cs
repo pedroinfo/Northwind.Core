@@ -11,7 +11,16 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<Region> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(e => e.RegionId)
+                    .ForSqlServerIsClustered(false);
+
+            builder.Property(e => e.RegionId)
+                .HasColumnName("RegionID")
+                .ValueGeneratedNever();
+
+            builder.Property(e => e.RegionDescription)
+                .IsRequired()
+                .HasMaxLength(50);
         }
     }
 }

@@ -11,7 +11,15 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<Shippers> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(e => e.ShipperId);
+
+            builder.Property(e => e.ShipperId).HasColumnName("ShipperID");
+
+            builder.Property(e => e.CompanyName)
+                .IsRequired()
+                .HasMaxLength(40);
+
+            builder.Property(e => e.Phone).HasMaxLength(24); 
         }
     }
 }

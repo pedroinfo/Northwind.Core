@@ -1,0 +1,96 @@
+﻿@model Northwind.Core.Domain.Entities.Orders
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Orders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RequiredDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RequiredDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShippedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShippedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Freight)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Freight)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShipName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShipAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipCity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShipCity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipRegion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShipRegion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipPostalCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShipPostalCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipCountry)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShipCountry)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipViaNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShipViaNavigation.CompanyName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.OrderId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
