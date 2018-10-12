@@ -11,7 +11,15 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<CustomerDemographics> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(e => e.CustomerTypeId)
+                   .ForSqlServerIsClustered(false);
+
+            builder.Property(e => e.CustomerTypeId)
+                .HasColumnName("CustomerTypeID")
+                .HasMaxLength(10)
+                .ValueGeneratedNever();
+
+            builder.Property(e => e.CustomerDesc).HasColumnType("ntext");
         }
     }
 }
