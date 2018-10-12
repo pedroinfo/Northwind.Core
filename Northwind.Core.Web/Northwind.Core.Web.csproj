@@ -6,6 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Northwind.Core.Domain\Northwind.Core.Domain.csproj" />
+    <ProjectReference Include="..\Northwind.Core.Infra\Northwind.Core.Infra.csproj" />
   </ItemGroup>
 
 </Project>

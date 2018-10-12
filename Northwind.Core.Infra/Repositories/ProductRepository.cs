@@ -7,10 +7,8 @@ using System.Text;
 
 namespace Northwind.Core.Infra.Repositories
 {
-    public class ProductRepository : GenericRepository<Products>, IProductRepository
+    public class ProductRepository
     {
-        public ProductRepository(NorthwindContext dbContext) : base(dbContext)
-        {
-        }
+
     }
 }

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Northwind.Core.Infra.Repositories
 {
@@ -18,32 +19,29 @@ namespace Northwind.Core.Infra.Repositories
             _unitOfWork = unitOfWork;
         }
 
-        public void Add(TEntity entity)
+        public Task Create(TEntity entity)
         {
-            _unitOfWork.Context.Set<TEntity>().Add(entity);
+            throw new NotImplementedException();
         }
 
-        public void Delete(TEntity entity)
+        public Task Delete(TEntity entity)
         {
-            TEntity existing = _unitOfWork.Context.Set<TEntity>().Find(entity);
-            if (existing != null) _unitOfWork.Context.Set<TEntity>().Remove(existing);
+            throw new NotImplementedException();
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public IQueryable<TEntity> GetAll()
         {
-            return _unitOfWork.Context.Set<TEntity>().AsEnumerable<TEntity>();
+            throw new NotImplementedException();
         }
 
-        public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> predicate)
+        public Task<TEntity> GetById(int id)
         {
-            return _unitOfWork.Context.Set<TEntity>().Where(predicate).AsEnumerable<TEntity>();
+            throw new NotImplementedException();
         }
 
-        public void Update(TEntity entity)
+        public Task Update(TEntity entity)
         {
-            _unitOfWork.Context.Entry(entity).State = EntityState.Modified;
-            _unitOfWork.Context.Set<TEntity>().Attach(entity);
+            throw new NotImplementedException();
         }
-
     }
 }
