@@ -2,11 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>1651586c-2c9f-4748-afd6-bc3f2c96b4e0</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="1.0.163" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,5 +21,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties libman_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>
