@@ -1,47 +1,68 @@
 ﻿@model IEnumerable<Northwind.Core.Domain.Entities.Categories>
 
-@{
-    ViewData["Title"] = "Index";
-}
 
-<h2>Index</h2>
+<section class="content">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Picture)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Picture)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-lg-12 mx-auto order-1 order-lg-2">
+
+                <div class="row">
+                    <div class="col-md">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header border-0">
+                                <h3 class="card-title">@ViewData["TituloCartaoPrincipal"]</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="maximize" title="Maximizar">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" title="Expandir / Recolher">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-wrench"></i>
+                                    </button>
+                                    <!-- Menu de ações -->
+                                    <div class="dropdown-menu dropdown-menu-right" role="menu" style="">
+                                        <a class="dropdown-item" data-toggle="modal" data-target="#histAlteracoesModal">
+                                            <span>
+                                                <i class="fas fa-info text-primary"></i>
+                                                &nbsp
+                                                Histórico de Edição do Registro
+                                            </span>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <hr class="m-0" />
+
+                            <!-- Body do cartão -->
+                            <div class="card-body table-responsive">
+
+                                <!--Conteúdo do Cartão-->
+                                <div id="divTargetRetornoModal">
+                                 
+                                </div>
+                            </div>
+
+
+                            <!--Rodapé Cartão-->
+                            <div class="card-footer">
+                                @*<div class="row m-0 p-0">
+                                    <a asp-action="UpSert" asp-route-id=@Guid.Empty sp-route-mudancaId=@Model.MudancaId data-modal="edicao"
+                                       supress-by-claim-name="ProjDados" supress-by-claim-value="Adicionar"
+                                       style="width: 100px"
+                                       class="btn btn-primary form-control" title="Criar Novo">Novo</a>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

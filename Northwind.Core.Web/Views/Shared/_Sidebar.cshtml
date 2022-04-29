@@ -63,6 +63,7 @@
 
                     </ul>
                 </li>
+
                 <li class="nav-header" supress-by-claim-name="Adm" supress-by-claim-value="Ler">ADMINISTRAÇÃO</li>
                 <li class="nav-item has-treeview" supress-by-claim-name="Adm" supress-by-claim-value="Ler">
                     <a class="nav-link" href="#">
@@ -75,55 +76,50 @@
                     <ul class="nav nav-treeview">
 
                         <li class="nav-item">
-                            <a asp-area="" asp-controller="Permissoes" asp-action="Index" class="nav-link">
+                            <a asp-area="" asp-controller="Customers" asp-action="Index" class="nav-link">
                                 <i class="fas fa-users nav-icon"></i>
-                                <p>Permissões</p>
+                                <p>Customers</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a asp-area="" asp-controller="Organizacoes" asp-action="Index" class="nav-link">
                                 <i class="fas fa-industry nav-icon"></i>
-                                <p>Organizações</p>
+                                <p>Employees</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a asp-area="" asp-controller="Sites" asp-action="Index" class="nav-link">
+                            <a asp-controller="Categories" asp-action="Index" class="nav-link">
                                 <i class="fas fa-industry nav-icon"></i>
-                                <p>Sites</p>
+                                <p>Categories</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a asp-area="" asp-controller="ClassificacaoProjetos" asp-action="Index" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Classificações</p>
+                                <p>Order</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a asp-area="" asp-controller="FamiliasEquipamentos" asp-action="Index" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Famílias Equip.</p>
+                                <p>Products</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a asp-area="" asp-controller="StatusAplicacao" asp-action="Index" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Status Aplicação</p>
+                                <p>Territories</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a asp-area="" asp-controller="Disciplinas" asp-action="Index" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Disciplinas</p>
+                                <p>Shippers</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a asp-area="" asp-controller="DocumentosProjetos" asp-action="Index" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Documentos Projetos</p>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </li>
             </ul>
