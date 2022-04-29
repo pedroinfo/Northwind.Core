@@ -33,6 +33,7 @@ namespace Northwind.Core.Web
 
 
             services.AddMvc();
+            services.AddRazorPages().AddRazorRuntimeCompilation();
 
             services.AddScoped<NorthwindContext, NorthwindContext>();
         }

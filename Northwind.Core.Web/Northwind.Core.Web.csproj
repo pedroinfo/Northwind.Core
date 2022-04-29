@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.161" />
   </ItemGroup>
@@ -20,10 +22,156 @@
     <Content Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="Views\Shared\_Sidebar.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\lib\" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\css\bootstrap-datepicker.css.map" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css.map" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\css\bootstrap-datepicker3.css.map" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css.map" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker-en-CA.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.ar-tn.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.ar.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.az.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.bg.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.bn.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.br.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.bs.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.ca.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.cs.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.cy.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.da.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.de.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.el.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.en-AU.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.en-CA.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.en-GB.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.en-IE.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.en-ZA.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.eo.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.es.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.et.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.eu.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.fa.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.fi.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.fo.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.fr.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.gl.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.he.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.hi.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.hr.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.hu.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.hy.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.id.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.is.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.it-CH.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.it.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.ja.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.ka.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.kh.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.kk.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.km.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.ko.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.kr.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.lt.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.lv.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.me.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.mk.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.mn.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.ms.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.nl.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.no.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.oc.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.pl.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.pt.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.ro.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.rs.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.ru.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.si.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.sk.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.sl.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.sq.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.sr.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.sv.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.sw.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.ta.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.tg.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.th.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.tk.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.tr.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.uk.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.uz-cyrl.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.uz-latn.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.vi.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datepicker\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <None Include="wwwroot\lib\bootstrap\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\font-awesome\css\font-awesome.css.map" />
+    <None Include="wwwroot\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery\core.js" />
+    <None Include="wwwroot\lib\jquery\jquery.js" />
+    <None Include="wwwroot\lib\jquery\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\jquery.min.map" />
+    <None Include="wwwroot\lib\jquery\jquery.slim.js" />
+    <None Include="wwwroot\lib\jquery\jquery.slim.min.js" />
+    <None Include="wwwroot\lib\jquery\jquery.slim.min.map" />
+    <None Include="wwwroot\lib\popper.js\esm\popper-utils.js" />
+    <None Include="wwwroot\lib\popper.js\esm\popper-utils.js.map" />
+    <None Include="wwwroot\lib\popper.js\esm\popper-utils.min.js" />
+    <None Include="wwwroot\lib\popper.js\esm\popper-utils.min.js.map" />
+    <None Include="wwwroot\lib\popper.js\esm\popper.js" />
+    <None Include="wwwroot\lib\popper.js\esm\popper.js.map" />
+    <None Include="wwwroot\lib\popper.js\esm\popper.min.js" />
+    <None Include="wwwroot\lib\popper.js\esm\popper.min.js.map" />
+    <None Include="wwwroot\lib\popper.js\popper-utils.js" />
+    <None Include="wwwroot\lib\popper.js\popper-utils.js.map" />
+    <None Include="wwwroot\lib\popper.js\popper-utils.min.js" />
+    <None Include="wwwroot\lib\popper.js\popper-utils.min.js.map" />
+    <None Include="wwwroot\lib\popper.js\popper.js" />
+    <None Include="wwwroot\lib\popper.js\popper.js.map" />
+    <None Include="wwwroot\lib\popper.js\popper.min.js" />
+    <None Include="wwwroot\lib\popper.js\popper.min.js.map" />
+    <None Include="wwwroot\lib\popper.js\umd\popper-utils.js" />
+    <None Include="wwwroot\lib\popper.js\umd\popper-utils.js.map" />
+    <None Include="wwwroot\lib\popper.js\umd\popper-utils.min.js" />
+    <None Include="wwwroot\lib\popper.js\umd\popper-utils.min.js.map" />
+    <None Include="wwwroot\lib\popper.js\umd\popper.js" />
+    <None Include="wwwroot\lib\popper.js\umd\popper.js.map" />
+    <None Include="wwwroot\lib\popper.js\umd\popper.min.js" />
+    <None Include="wwwroot\lib\popper.js\umd\popper.min.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\Images\" />
+    <Folder Include="wwwroot\images\Profile\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties libman_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>

@@ -1,0 +1,55 @@
+{
+    "name": "filepond-plugin-media-preview",
+    "version": "1.0.11",
+    "description": "Media preview Plugin for FilePond",
+    "license": "MIT",
+    "author": {
+        "name": "Niels Boogaard"
+    },
+    "repository": "nielsboogaard/filepond-plugin-media-preview",
+    "main": "dist/filepond-plugin-media-preview.js",
+    "browser": "dist/filepond-plugin-media-preview.js",
+    "module": "dist/filepond-plugin-media-preview.esm.js",
+    "browserslist": [
+        "last 1 version and not Explorer 10",
+        "Explorer 11",
+        "iOS >= 9",
+        "Android >= 4.4"
+    ],
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "start": "npx rollup -c -w",
+        "build": "npm run scripts | npm run styles | npm run copy",
+        "scripts": "npx rollup -c",
+        "styles": "npm run styles:pretty && npm run styles:nano",
+        "styles:pretty": "cat src/css/* | npx node-sass | npx postcss --no-map --use autoprefixer | npx prettier --single-quote --parser css | node banner-cli.js FilePondPluginmediaPreview > dist/filepond-plugin-media-preview.css",
+        "styles:nano": "cat src/css/* | npx node-sass | npx postcss --no-map --use autoprefixer --use cssnano | node banner-cli.js FilePondPluginmediaPreview > dist/filepond-plugin-media-preview.min.css",
+        "copy": "cp -r src/images/ dist/images"
+    },
+    "peerDependencies": {
+        "filepond": ">=4.x <5.x"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.17.5",
+        "@babel/preset-env": "^7.16.11",
+        "autoprefixer": "^10.4.2",
+        "css-what": ">=6.0.1",
+        "cssnano": "^5.0.17",
+        "dot-prop": ">=7.2.0",
+        "lodash": ">=4.17.21",
+        "node-sass": "^7.0.1",
+        "postcss": "^8.4.6",
+        "postcss-cli": "9.1.0",
+        "prettier": "^2.5.1",
+        "rollup": "^2.67.3",
+        "rollup-plugin-babel": "^4.4.0",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-license": "^2.6.1",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-prettier": "^2.2.2",
+        "rollup-plugin-terser": "^7.0.2",
+        "trim-newlines": ">=4.0.2"
+    }
+}
