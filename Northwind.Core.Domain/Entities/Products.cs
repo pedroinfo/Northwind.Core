@@ -21,7 +21,7 @@ namespace Northwind.Core.Domain.Entities
         public short? ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
 
-        public Categories Category { get; set; }
+        public Category Category { get; set; }
         public Suppliers Supplier { get; set; }
         public ICollection<OrderDetails> OrderDetails { get; set; }
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

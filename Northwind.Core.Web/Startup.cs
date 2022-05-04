@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Northwind.Core.Infra.Context;
+using AutoMapper;
+
 
 namespace Northwind.Core.Web
 {
@@ -36,6 +38,10 @@ namespace Northwind.Core.Web
             services.AddRazorPages().AddRazorRuntimeCompilation();
 
             services.AddScoped<NorthwindContext, NorthwindContext>();
+
+
+            services.AddAutoMapper(typeof(Startup));
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

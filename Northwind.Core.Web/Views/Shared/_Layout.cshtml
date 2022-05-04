@@ -26,30 +26,15 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
 
-    <!--Bootstrap-table-->
-    <link href="~/lib/jquery-resizable-columns/dist/jquery.resizableColumns.css" rel="stylesheet" />
-    <link href="~/lib/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" />
-
     <!--Bootstrap-DatePicker-->
     <link href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
-
-    <link href="~/lib/bootstrap-tree-view/css/bootstrapTreewView.css" rel="stylesheet" />
-
-    <link href="~/lib/venobox/dist/venobox.css" rel="stylesheet" />
 
     <!--SELECT2-->
     <link href="~/plugins/select2/css/select2.min.css" rel="stylesheet" />
     <link href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet" />
 
-    <!--Filepound-->
-    <link href="~/lib/filepond/dist/filepond.css" rel="stylesheet" />
-    <link href="~/lib/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
-    <link href="~/lib/filepond-plugin-media-preview/dist/filepond-plugin-media-preview.css" rel="stylesheet" />
-
-    <!--Swiperjs-->
-    <link href="~/lib/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
-
+    <!-- DataTables -->
+    <link href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.css" rel="stylesheet" />
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed sidebar-collapse">
@@ -69,84 +54,52 @@
         <aside class="control-sidebar control-sidebar-dark"></aside>
     </div>
 
-    <div>
-        <!-- jQuery -->
-        <script src="~/plugins/jquery/jquery.min.js"></script>
-        <!-- jQuery UI 1.11.4 -->
-        <script src="~/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- jQuery -->
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-        <script>
-            $.widget.bridge('uibutton', $.ui.button)
-        </script>
-        <!-- Bootstrap 4 -->
-        <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- ChartJS -->
-        <script src="~/plugins/chart.js/Chart.min.js"></script>
-        <!-- Sparkline -->
-        <script src="~/plugins/sparklines/sparkline.js"></script>
-        <!-- JQVMap-->
-        @*<script src="~/plugins/jqvmap/jquery.vmap.min.js"></script>
-            <script src="~/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>*@
-        <!-- jQuery Knob Chart -->
-        <script src="~/plugins/jquery-knob/jquery.knob.min.js"></script>
-        <!-- daterangepicker -->
-        <script src="~/plugins/moment/moment.min.js"></script>
-        <script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="~/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="~/plugins/sparklines/sparkline.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="~/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="~/plugins/moment/moment.min.js"></script>
+    <script src="~/plugins/daterangepicker/daterangepicker.js"></script>
 
-        <!-- Tempusdominus Bootstrap 4 -->
-        <script src="~/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-        <!-- Summernote -->
-        <script src="~/plugins/summernote/summernote-bs4.min.js"></script>
-        <!-- overlayScrollbars -->
-        <script src="~/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="~/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
-        <script src="~/js/site.js"></script>
+    <script src="~/js/site.js"></script>
 
-
-        <!-- AdminLTE App -->
-        <script src="~/dist/js/adminlte.js"></script>
-    </div>
-
-    <div>
-        <script src="~/lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
-
-        <script src="~/lib/jquery-resizable-columns/dist/jquery.resizableColumns.min.js"></script>
-        <script src="~/lib/bootstrap-table/dist/extensions/resizable/bootstrap-table-resizable.min.js"></script>
-        <script src="~/lib/bootstrap-table/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
-        <script src="~/lib/bootstrap-table/dist/extensions/export/bootstrap-table-export.min.js"></script>
-        <script src="~/lib/bootstrap-table/dist/extensions/cookie/bootstrap-table-cookie.min.js"></script>
-        <script src="~/lib/bootstrap-table/dist/extensions/custom-view/bootstrap-table-custom-view.min.js"></script>
-        <script src="~/lib/bootstrap-table/dist/locale/bootstrap-table-pt-BR.js"></script>
-        <script src="~/lib/bootstrap-table/dist/locale/bootstrap-table-en-US.js"></script>
-        <script src="~/lib/bootstrap-table/dist/locale/bootstrap-table-es-MX.js"></script>
-        <script src="~/lib/tableexport.jquery.plugin/tableExport.min.js"></script>
-        <script src="~/lib/tableexport.jquery.plugin/libs/jsPDF/jspdf.min.js"></script>
-        <script src="~/lib/tableexport.jquery.plugin/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
-
-    </div>
+    <!-- AdminLTE App -->
+    <script src="~/dist/js/adminlte.js"></script>
 
     <!--Bootstrap-DatePicker-->
-    <div>
-        <script src="~/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-        <script src="~/lib/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js"></script>
-    </div>
+    <script src="~/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/lib/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+
     <!--Sweet Alert-->
     <script src="~/lib/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <!--Bootstrap TreewView-->
-    <script src="~/lib/bootstrap-tree-view/js/bootstrapTreewView.js"></script>
-    <!--Filepound-->
-    <script src="~/lib/filepond/dist/filepond.js"></script>
-    <script src="~/lib/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-    <script src="~/lib/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
-    <script src="~/lib/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
-    <script src="~/lib/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
-    <script src="~/lib/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
-    <script src="~/lib/filepond-plugin-media-preview/dist/filepond-plugin-media-preview.js"></script>
 
-    <script src="~/lib/venobox/dist/venobox.min.js"></script>
-    <script src="~/lib/swiper/swiper-bundle.min.js"></script>
     <script src="~/plugins/select2/js/select2.full.min.js"></script>
+
+
+    <!--Datatables-->
+    <script src="~/plugins/datatables/jquery.dataTables.js"></script>
+    <script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 
     @RenderSection("Scripts", false)
 </body>

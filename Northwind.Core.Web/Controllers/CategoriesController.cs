@@ -19,13 +19,17 @@ namespace Northwind.Core.Web.Controllers
             _context = context;
         }
 
-        // GET: Categories
         public async Task<IActionResult> Index()
         {
             return View(await _context.Categories.ToListAsync());
         }
 
-        // GET: Categories/Details/5
+        [HttpGet]
+        public async Task<IActionResult> GridCategories()
+        {
+            return Ok(await _context.Categories.ToListAsync());
+        }
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,7 +47,6 @@ namespace Northwind.Core.Web.Controllers
             return View(categories);
         }
 
-        // GET: Categories/Create
         public IActionResult Create()
         {
             return View();
@@ -52,7 +55,7 @@ namespace Northwind.Core.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,Description,Picture")] Categories categories)
+        public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,Description,Picture")] Category categories)
         {
             if (ModelState.IsValid)
             {
@@ -63,7 +66,6 @@ namespace Northwind.Core.Web.Controllers
             return View(categories);
         }
 
-        // GET: Categories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -79,12 +81,10 @@ namespace Northwind.Core.Web.Controllers
             return View(categories);
         }
 
-        // POST: Categories/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,Description,Picture")] Categories categories)
+        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,Description,Picture")] Category categories)
         {
             if (id != categories.CategoryId)
             {
@@ -114,7 +114,6 @@ namespace Northwind.Core.Web.Controllers
             return View(categories);
         }
 
-        // GET: Categories/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

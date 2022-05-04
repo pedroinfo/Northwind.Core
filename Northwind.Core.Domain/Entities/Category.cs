@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Northwind.Core.Domain.Entities
 {
-    public class Categories
+    public class Category
     {
-        public Categories()
+        public Category()
         {
             Products = new HashSet<Products>();
         }

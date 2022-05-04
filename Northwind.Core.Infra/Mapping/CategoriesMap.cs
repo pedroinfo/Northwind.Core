@@ -4,9 +4,9 @@ using Northwind.Core.Domain.Entities;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class CategoriesMap : IEntityTypeConfiguration<Categories>
+    public class CategoriesMap : IEntityTypeConfiguration<Category>
     {
-        public void Configure(EntityTypeBuilder<Categories> builder)
+        public void Configure(EntityTypeBuilder<Category> builder)
         {
 
             builder.HasKey(e => e.CategoryId);

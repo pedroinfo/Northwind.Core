@@ -11,7 +11,7 @@ namespace Northwind.Core.Infra.Context
 {
     public class NorthwindContext : DbContext
     {
-        public DbSet<Categories> Categories { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
         public DbSet<CustomerDemographics> CustomerDemographics { get; set; }
         public DbSet<Customers> Customers { get; set; }
