@@ -1,17 +1,42 @@
-﻿@model Northwind.Core.Domain.Entities.Category
+﻿@model Northwind.Core.Web.ViewModels.CategoryViewModel
+
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Add New Category";
 }
 
-<h2>Create</h2>
-
-<h4>Categories</h4>
+<section class="content-header p-0">
+    <div class="container-fluid">
+        <div class="row mb-3">
+            <div class="col-md-6 m-0 pl-0">
+                <h2 class="text-secondary m-0">@ViewData["Title"]</h2>
+            </div>
+        </div>
+    </div>
+</section>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<section class="content">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <form asp-action="Create">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">@ViewData["TituloCartaoPrincipal"]</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="maximize" title="Maximizar">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="form-group">
+                                <form asp-action="Edit">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CategoryId" />
             <div class="form-group">
                 <label asp-for="CategoryName" class="control-label"></label>
                 <input asp-for="CategoryName" class="form-control" />
@@ -28,15 +53,31 @@
                 <span asp-validation-for="Picture" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </form>
-    </div>
-</div>
+                            </div>
+                        </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+                        <div class="card-footer">
+                            <div class="row col-md-5 m-0 p-0">
+                                <div class="col-6 p-0">
+                                    <button type="submit" class="btn btn-success form-control" title="Salvar">Salvar</button>
+                                </div>
+                                <div class="col-6 p-0 pl-2">
+                                    <a asp-action="Index" class="btn btn-info form-control" title="Cancelar">Cancelar</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

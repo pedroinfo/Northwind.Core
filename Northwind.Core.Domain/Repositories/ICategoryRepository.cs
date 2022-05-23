@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Northwind.Core.Domain.Repositories
 {
-    public class ICategoriesRepository
+    public interface ICategoryRepository
     {
     }
 }
