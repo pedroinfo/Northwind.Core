@@ -4,64 +4,56 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">
+        <button type="button" class="btn btn-primary">Add Employees</button>
+    </a>
 </p>
-<table class="table">
+
+<table class="table table-striped table-bordered table-hover" id="table-employees">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                LastName
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                FirstName
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                Title
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TitleOfCourtesy)
+                TitleOfCourtesy
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BirthDate)
+                Birth Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HireDate)
+                Hire Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Address)
+                Address
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.City)
+                City
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Region)
+                Region
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PostalCode)
+                Postal Code
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Country)
+                Country
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HomePhone)
+                HomePhone
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Extension)
+                Extension
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Photo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Notes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhotoPath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReportsToNavigation)
+                Reports To Navigation
             </th>
             <th></th>
         </tr>
@@ -93,9 +85,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.City)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Region)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.PostalCode)
             </td>
@@ -109,23 +99,34 @@
                 @Html.DisplayFor(modelItem => item.Extension)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Photo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhotoPath)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.ReportsToNavigation.FirstName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
+                <a asp-action="Create">
+                    <button type="button" class="btn btn-primary btn-sm">
+                        <i class="fas fa-pencil"></i>  Edit  
+                    </button>
+                </a>
+                 
+                <a asp-action="Create">
+                    <button type="button" class="btn btn-secondary btn-sm">
+                        <i class="fas fa-circle-info"></i> Details
+                    </button>
+                </a>
+
+                <a asp-action="Create">
+                    <button type="button" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash-can"></i> Delete
+                    </button>
+                </a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+@section Scripts{
+<script>
+    $('#table-employees').DataTable();
+</script>
+}
