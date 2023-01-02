@@ -4,52 +4,53 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">
+        <button type="button" class="btn btn-primary">Add Order</button>
+    </a>
 </p>
-<table class="table">
+
+<table class="table table-striped table-bordered table-hover" id="table-orders">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.OrderDate)
+                 Order Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RequiredDate)
+                 Required Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShippedDate)
+                 Shipped Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Freight)
+                 Freight
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShipName)
+                  Ship Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShipAddress)
+                 Ship Address
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShipCity)
+                Ship City
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShipRegion)
+                ShipRegion
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShipPostalCode)
+                 Ship Postal Code
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShipCountry)
+                 Ship Country
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Customer)
+                 Customer
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Employee)
+                 Employee
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShipViaNavigation)
+                 Ship Via Navigation
             </th>
             <th></th>
         </tr>
@@ -97,11 +98,32 @@
                 @Html.DisplayFor(modelItem => item.ShipViaNavigation.CompanyName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
+                <a asp-action="Create">
+                    <button type="button" class="btn btn-primary btn-sm">
+                        <i class="fas fa-pencil"></i>  Edit  
+                    </button>
+                </a>
+                 
+                <a asp-action="Create">
+                    <button type="button" class="btn btn-secondary btn-sm">
+                        <i class="fas fa-circle-info"></i> Details
+                    </button>
+                </a>
+
+                <a asp-action="Create">
+                    <button type="button" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash-can"></i> Delete
+                    </button>
+                </a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+@section Scripts
+{
+<script>
+    $('#table-orders').DataTable();
+</script>
+}

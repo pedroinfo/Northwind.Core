@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Northwind.Core.Domain.Entities
 {
-    public class Products : IEntity
+    public class Products 
     {
         public Products()
         {
@@ -24,6 +24,6 @@ namespace Northwind.Core.Domain.Entities
         public Category Category { get; set; }
         public Suppliers Supplier { get; set; }
         public ICollection<OrderDetails> OrderDetails { get; set; }
-        public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        
     }
 }

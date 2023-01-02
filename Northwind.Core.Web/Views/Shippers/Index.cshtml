@@ -4,19 +4,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">
+        <button type="button" class="btn btn-primary">Add Shipper</button>
+    </a>
 </p>
-<table class="table">
+
+<table class="table" id="table-shipper">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CompanyName)
+                 Company Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Phone)
+                 Phone
             </th>
             <th></th>
         </tr>
@@ -31,11 +32,31 @@
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ShipperId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ShipperId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ShipperId">Delete</a>
+                <a asp-action="Create">
+                    <button type="button" class="btn btn-primary btn-sm">
+                        <i class="fas fa-pencil"></i>  Edit  
+                    </button>
+                </a>
+                 
+                <a asp-action="Create">
+                    <button type="button" class="btn btn-secondary btn-sm">
+                        <i class="fas fa-circle-info"></i> Details
+                    </button>
+                </a>
+
+                <a asp-action="Create">
+                    <button type="button" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash-can"></i> Delete
+                    </button>
+                </a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+@section Scripts
+{
+<script>
+    $('#table-shipper').DataTable();
+</script>
+}
