@@ -1,4 +1,16 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+var url = window.location;
 
-// Write your JavaScript code.
+// for sidebar menu entirely but not cover treeview
+$('ul.nav-sidebar a').filter(function () {
+    if (this.href) {
+        return this.href == url || url.href.indexOf(this.href) == 0;
+    }
+}).addClass('active');
+
+// for the treeview
+$('ul.nav-treeview a').filter(function () {
+    if (this.href) {
+        return this.href == url || url.href.indexOf(this.href) == 0;
+    }
+}).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
