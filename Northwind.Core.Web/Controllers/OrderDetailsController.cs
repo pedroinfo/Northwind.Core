@@ -22,7 +22,7 @@ namespace Northwind.Core.Web.Controllers
         // GET: OrderDetails
         public async Task<IActionResult> Index()
         {
-            var northwindContext = _context.OrderDetails.Include(o => o.Order).Include(o => o.Product);
+            var northwindContext = _context.OrderDetail.Include(o => o.Order).Include(o => o.Product);
             return View(await northwindContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var orderDetails = await _context.OrderDetails
+            var orderDetails = await _context.OrderDetail
                 .Include(o => o.Order)
                 .Include(o => o.Product)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -49,14 +49,12 @@ namespace Northwind.Core.Web.Controllers
         // GET: OrderDetails/Create
         public IActionResult Create()
         {
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId");
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName");
+            ViewData["OrderId"] = new SelectList(_context.Order, "OrderId", "OrderId");
+            ViewData["ProductId"] = new SelectList(_context.Product, "ProductId", "ProductName");
             return View();
         }
 
-        // POST: OrderDetails/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("OrderId,ProductId,UnitPrice,Quantity,Discount")] OrderDetail orderDetails)
@@ -67,8 +65,8 @@ namespace Northwind.Core.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderDetails.OrderId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName", orderDetails.ProductId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "OrderId", "OrderId", orderDetails.OrderId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "ProductId", "ProductName", orderDetails.ProductId);
             return View(orderDetails);
         }
 
@@ -80,13 +78,13 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var orderDetails = await _context.OrderDetails.FindAsync(id);
+            var orderDetails = await _context.OrderDetail.FindAsync(id);
             if (orderDetails == null)
             {
                 return NotFound();
             }
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderDetails.OrderId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName", orderDetails.ProductId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "OrderId", "OrderId", orderDetails.OrderId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "ProductId", "ProductName", orderDetails.ProductId);
             return View(orderDetails);
         }
 
@@ -122,8 +120,8 @@ namespace Northwind.Core.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderId"] = new SelectList(_context.Orders, "OrderId", "OrderId", orderDetails.OrderId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName", orderDetails.ProductId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "OrderId", "OrderId", orderDetails.OrderId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "ProductId", "ProductName", orderDetails.ProductId);
             return View(orderDetails);
         }
 
@@ -135,7 +133,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var orderDetails = await _context.OrderDetails
+            var orderDetails = await _context.OrderDetail
                 .Include(o => o.Order)
                 .Include(o => o.Product)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
@@ -152,15 +150,15 @@ namespace Northwind.Core.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var orderDetails = await _context.OrderDetails.FindAsync(id);
-            _context.OrderDetails.Remove(orderDetails);
+            var orderDetails = await _context.OrderDetail.FindAsync(id);
+            _context.OrderDetail.Remove(orderDetails);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OrderDetailsExists(int id)
         {
-            return _context.OrderDetails.Any(e => e.OrderId == id);
+            return _context.OrderDetail.Any(e => e.OrderId == id);
         }
     }
 }

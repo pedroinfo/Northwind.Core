@@ -22,7 +22,7 @@ namespace Northwind.Core.Web.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            var northwindContext = _context.Orders.Include(o => o.Customer).Include(o => o.Employee).Include(o => o.ShipViaNavigation);
+            var northwindContext = _context.Order.Include(o => o.Customer).Include(o => o.Employee).Include(o => o.ShipViaNavigation);
             return View(await northwindContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var orders = await _context.Orders
+            var orders = await _context.Order
                 .Include(o => o.Customer)
                 .Include(o => o.Employee)
                 .Include(o => o.ShipViaNavigation)
@@ -50,9 +50,9 @@ namespace Northwind.Core.Web.Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FirstName");
-            ViewData["ShipVia"] = new SelectList(_context.Shippers, "ShipperId", "CompanyName");
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId");
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FirstName");
+            ViewData["ShipVia"] = new SelectList(_context.Shipper, "ShipperId", "CompanyName");
             return View();
         }
 
@@ -69,9 +69,9 @@ namespace Northwind.Core.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", orders.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FirstName", orders.EmployeeId);
-            ViewData["ShipVia"] = new SelectList(_context.Shippers, "ShipperId", "CompanyName", orders.ShipVia);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId", orders.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FirstName", orders.EmployeeId);
+            ViewData["ShipVia"] = new SelectList(_context.Shipper, "ShipperId", "CompanyName", orders.ShipVia);
             return View(orders);
         }
 
@@ -83,14 +83,14 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var orders = await _context.Orders.FindAsync(id);
+            var orders = await _context.Order.FindAsync(id);
             if (orders == null)
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", orders.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FirstName", orders.EmployeeId);
-            ViewData["ShipVia"] = new SelectList(_context.Shippers, "ShipperId", "CompanyName", orders.ShipVia);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId", orders.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FirstName", orders.EmployeeId);
+            ViewData["ShipVia"] = new SelectList(_context.Shipper, "ShipperId", "CompanyName", orders.ShipVia);
             return View(orders);
         }
 
@@ -126,9 +126,9 @@ namespace Northwind.Core.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", orders.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FirstName", orders.EmployeeId);
-            ViewData["ShipVia"] = new SelectList(_context.Shippers, "ShipperId", "CompanyName", orders.ShipVia);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId", orders.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FirstName", orders.EmployeeId);
+            ViewData["ShipVia"] = new SelectList(_context.Shipper, "ShipperId", "CompanyName", orders.ShipVia);
             return View(orders);
         }
 
@@ -140,7 +140,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var orders = await _context.Orders
+            var orders = await _context.Order
                 .Include(o => o.Customer)
                 .Include(o => o.Employee)
                 .Include(o => o.ShipViaNavigation)
@@ -153,20 +153,20 @@ namespace Northwind.Core.Web.Controllers
             return View(orders);
         }
 
-        // POST: Orders/Delete/5
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var orders = await _context.Orders.FindAsync(id);
-            _context.Orders.Remove(orders);
+            var orders = await _context.Order.FindAsync(id);
+            _context.Order.Remove(orders);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OrdersExists(int id)
         {
-            return _context.Orders.Any(e => e.OrderId == id);
+            return _context.Order.Any(e => e.OrderId == id);
         }
     }
 }

@@ -1,13 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Northwind.Core.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class ProductsMap : IEntityTypeConfiguration<Product>
+    public class ProductMap : IEntityTypeConfiguration<Product>
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {

@@ -1,13 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Northwind.Core.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class OrderDetailsMap : IEntityTypeConfiguration<OrderDetail>
+    public class OrderDetailMap : IEntityTypeConfiguration<OrderDetail>
     {
         public void Configure(EntityTypeBuilder<OrderDetail> builder)
         {

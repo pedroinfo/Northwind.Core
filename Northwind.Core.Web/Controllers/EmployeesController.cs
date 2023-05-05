@@ -22,7 +22,7 @@ namespace Northwind.Core.Web.Controllers
         // GET: Employees
         public async Task<IActionResult> Index()
         {
-            var northwindContext = _context.Employees.Include(e => e.ReportsToNavigation);
+            var northwindContext = _context.Employee.Include(e => e.ReportsToNavigation);
             return View(await northwindContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var employees = await _context.Employees
+            var employees = await _context.Employee
                 .Include(e => e.ReportsToNavigation)
                 .FirstOrDefaultAsync(m => m.EmployeeId == id);
             if (employees == null)
@@ -45,16 +45,12 @@ namespace Northwind.Core.Web.Controllers
             return View(employees);
         }
 
-        // GET: Employees/Create
         public IActionResult Create()
         {
-            ViewData["ReportsTo"] = new SelectList(_context.Employees, "EmployeeId", "FirstName");
+            ViewData["ReportsTo"] = new SelectList(_context.Employee, "EmployeeId", "FirstName");
             return View();
         }
 
-        // POST: Employees/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("EmployeeId,LastName,FirstName,Title,TitleOfCourtesy,BirthDate,HireDate,Address,City,Region,PostalCode,Country,HomePhone,Extension,Photo,Notes,ReportsTo,PhotoPath")] Employee employees)
@@ -65,7 +61,7 @@ namespace Northwind.Core.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ReportsTo"] = new SelectList(_context.Employees, "EmployeeId", "FirstName", employees.ReportsTo);
+            ViewData["ReportsTo"] = new SelectList(_context.Employee, "EmployeeId", "FirstName", employees.ReportsTo);
             return View(employees);
         }
 
@@ -77,12 +73,12 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var employees = await _context.Employees.FindAsync(id);
+            var employees = await _context.Employee.FindAsync(id);
             if (employees == null)
             {
                 return NotFound();
             }
-            ViewData["ReportsTo"] = new SelectList(_context.Employees, "EmployeeId", "FirstName", employees.ReportsTo);
+            ViewData["ReportsTo"] = new SelectList(_context.Employee, "EmployeeId", "FirstName", employees.ReportsTo);
             return View(employees);
         }
 
@@ -118,7 +114,7 @@ namespace Northwind.Core.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ReportsTo"] = new SelectList(_context.Employees, "EmployeeId", "FirstName", employees.ReportsTo);
+            ViewData["ReportsTo"] = new SelectList(_context.Employee, "EmployeeId", "FirstName", employees.ReportsTo);
             return View(employees);
         }
 
@@ -130,7 +126,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var employees = await _context.Employees
+            var employees = await _context.Employee
                 .Include(e => e.ReportsToNavigation)
                 .FirstOrDefaultAsync(m => m.EmployeeId == id);
             if (employees == null)
@@ -146,15 +142,15 @@ namespace Northwind.Core.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var employees = await _context.Employees.FindAsync(id);
-            _context.Employees.Remove(employees);
+            var employees = await _context.Employee.FindAsync(id);
+            _context.Employee.Remove(employees);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool EmployeesExists(int id)
         {
-            return _context.Employees.Any(e => e.EmployeeId == id);
+            return _context.Employee.Any(e => e.EmployeeId == id);
         }
     }
 }

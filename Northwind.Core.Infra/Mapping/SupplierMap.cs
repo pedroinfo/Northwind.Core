@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class SuppliersMap : IEntityTypeConfiguration<Supplier>
+    public class SupplierMap : IEntityTypeConfiguration<Supplier>
     {
         public void Configure(EntityTypeBuilder<Supplier> builder)
         {

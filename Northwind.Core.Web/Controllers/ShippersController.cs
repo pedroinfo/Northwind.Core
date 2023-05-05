@@ -22,7 +22,7 @@ namespace Northwind.Core.Web.Controllers
         // GET: Shippers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Shippers.ToListAsync());
+            return View(await _context.Shipper.ToListAsync());
         }
 
         // GET: Shippers/Details/5
@@ -33,7 +33,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var shippers = await _context.Shippers
+            var shippers = await _context.Shipper
                 .FirstOrDefaultAsync(m => m.ShipperId == id);
             if (shippers == null)
             {
@@ -49,9 +49,6 @@ namespace Northwind.Core.Web.Controllers
             return View();
         }
 
-        // POST: Shippers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ShipperId,CompanyName,Phone")] Shipper shippers)
@@ -73,7 +70,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var shippers = await _context.Shippers.FindAsync(id);
+            var shippers = await _context.Shipper.FindAsync(id);
             if (shippers == null)
             {
                 return NotFound();
@@ -124,7 +121,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var shippers = await _context.Shippers
+            var shippers = await _context.Shipper
                 .FirstOrDefaultAsync(m => m.ShipperId == id);
             if (shippers == null)
             {
@@ -139,15 +136,15 @@ namespace Northwind.Core.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var shippers = await _context.Shippers.FindAsync(id);
-            _context.Shippers.Remove(shippers);
+            var shippers = await _context.Shipper.FindAsync(id);
+            _context.Shipper.Remove(shippers);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ShippersExists(int id)
         {
-            return _context.Shippers.Any(e => e.ShipperId == id);
+            return _context.Shipper.Any(e => e.ShipperId == id);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Northwind.Core.Web.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var northwindContext = _context.Products.Include(p => p.Category).Include(p => p.Supplier);
+            var northwindContext = _context.Product.Include(p => p.Category).Include(p => p.Supplier);
             return View(await northwindContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var products = await _context.Products
+            var products = await _context.Product
                 .Include(p => p.Category)
                 .Include(p => p.Supplier)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
@@ -49,8 +49,8 @@ namespace Northwind.Core.Web.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName");
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryName");
+            ViewData["SupplierId"] = new SelectList(_context.Supplier, "SupplierId", "CompanyName");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace Northwind.Core.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", products.CategoryId);
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName", products.SupplierId);
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryName", products.CategoryId);
+            ViewData["SupplierId"] = new SelectList(_context.Supplier, "SupplierId", "CompanyName", products.SupplierId);
             return View(products);
         }
 
@@ -80,13 +80,13 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var products = await _context.Products.FindAsync(id);
+            var products = await _context.Product.FindAsync(id);
             if (products == null)
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", products.CategoryId);
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName", products.SupplierId);
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryName", products.CategoryId);
+            ViewData["SupplierId"] = new SelectList(_context.Supplier, "SupplierId", "CompanyName", products.SupplierId);
             return View(products);
         }
 
@@ -122,8 +122,8 @@ namespace Northwind.Core.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", products.CategoryId);
-            ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName", products.SupplierId);
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryName", products.CategoryId);
+            ViewData["SupplierId"] = new SelectList(_context.Supplier, "SupplierId", "CompanyName", products.SupplierId);
             return View(products);
         }
 
@@ -135,7 +135,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var products = await _context.Products
+            var products = await _context.Product
                 .Include(p => p.Category)
                 .Include(p => p.Supplier)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
@@ -152,15 +152,15 @@ namespace Northwind.Core.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var products = await _context.Products.FindAsync(id);
-            _context.Products.Remove(products);
+            var products = await _context.Product.FindAsync(id);
+            _context.Product.Remove(products);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductsExists(int id)
         {
-            return _context.Products.Any(e => e.ProductId == id);
+            return _context.Product.Any(e => e.ProductId == id);
         }
     }
 }

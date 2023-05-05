@@ -22,7 +22,7 @@ namespace Northwind.Core.Web.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customers.ToListAsync());
+            return View(await _context.Customer.ToListAsync());
         }
 
         // GET: Customers/Details/5
@@ -33,7 +33,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var customers = await _context.Customers
+            var customers = await _context.Customer
                 .FirstOrDefaultAsync(m => m.CustomerId == id);
             if (customers == null)
             {
@@ -49,9 +49,6 @@ namespace Northwind.Core.Web.Controllers
             return View();
         }
 
-        // POST: Customers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerId,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax")] Customer customers)
@@ -73,7 +70,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var customers = await _context.Customers.FindAsync(id);
+            var customers = await _context.Customer.FindAsync(id);
             if (customers == null)
             {
                 return NotFound();
@@ -124,7 +121,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var customers = await _context.Customers
+            var customers = await _context.Customer
                 .FirstOrDefaultAsync(m => m.CustomerId == id);
             if (customers == null)
             {
@@ -139,15 +136,15 @@ namespace Northwind.Core.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var customers = await _context.Customers.FindAsync(id);
-            _context.Customers.Remove(customers);
+            var customers = await _context.Customer.FindAsync(id);
+            _context.Customer.Remove(customers);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CustomersExists(string id)
         {
-            return _context.Customers.Any(e => e.CustomerId == id);
+            return _context.Customer.Any(e => e.CustomerId == id);
         }
     }
 }

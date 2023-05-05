@@ -4,7 +4,7 @@ using Northwind.Core.Domain.Entities;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class CategoriesMap : IEntityTypeConfiguration<Category>
+    public class CategoryMap : IEntityTypeConfiguration<Category>
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {

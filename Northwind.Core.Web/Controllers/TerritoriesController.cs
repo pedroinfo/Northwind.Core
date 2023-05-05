@@ -22,7 +22,7 @@ namespace Northwind.Core.Web.Controllers
         // GET: Territories
         public async Task<IActionResult> Index()
         {
-            var northwindContext = _context.Territories.Include(t => t.Region);
+            var northwindContext = _context.Territory.Include(t => t.Region);
             return View(await northwindContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var territories = await _context.Territories
+            var territories = await _context.Territory
                 .Include(t => t.Region)
                 .FirstOrDefaultAsync(m => m.TerritoryId == id);
             if (territories == null)
@@ -77,7 +77,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var territories = await _context.Territories.FindAsync(id);
+            var territories = await _context.Territory.FindAsync(id);
             if (territories == null)
             {
                 return NotFound();
@@ -130,7 +130,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var territories = await _context.Territories
+            var territories = await _context.Territory
                 .Include(t => t.Region)
                 .FirstOrDefaultAsync(m => m.TerritoryId == id);
             if (territories == null)
@@ -146,15 +146,15 @@ namespace Northwind.Core.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var territories = await _context.Territories.FindAsync(id);
-            _context.Territories.Remove(territories);
+            var territories = await _context.Territory.FindAsync(id);
+            _context.Territory.Remove(territories);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TerritoriesExists(string id)
         {
-            return _context.Territories.Any(e => e.TerritoryId == id);
+            return _context.Territory.Any(e => e.TerritoryId == id);
         }
     }
 }

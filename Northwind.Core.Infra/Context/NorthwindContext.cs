@@ -11,19 +11,19 @@ namespace Northwind.Core.Infra.Context
 {
     public class NorthwindContext : DbContext
     {
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Category> Category { get; set; }
         public DbSet<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
         public DbSet<CustomerDemographics> CustomerDemographics { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<EmployeeTerritories> EmployeeTerritories { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Employee> Employee { get; set; }
+        public DbSet<EmployeeTerritories> EmployeeTerritory { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<Product> Product { get; set; }
         public DbSet<Region> Region { get; set; }
-        public DbSet<Shipper> Shippers { get; set; }
-        public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<Territory> Territories { get; set; }
+        public DbSet<Shipper> Shipper { get; set; }
+        public DbSet<Supplier> Supplier { get; set; }
+        public DbSet<Territory> Territory { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,19 +37,19 @@ namespace Northwind.Core.Infra.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfiguration(new CategoriesMap());
+            builder.ApplyConfiguration(new CategoryMap());
             builder.ApplyConfiguration(new CustomerCustomerDemoMap());
-            builder.ApplyConfiguration(new CustomerDemographicsMap());
-            builder.ApplyConfiguration(new CustomersMap());
-            builder.ApplyConfiguration(new EmployeesMap());
-            builder.ApplyConfiguration(new EmployeeTerritoriesMap());
-            builder.ApplyConfiguration(new OrderDetailsMap());
+            builder.ApplyConfiguration(new CustomerDemographicMap());
+            builder.ApplyConfiguration(new CustomerMap());
+            builder.ApplyConfiguration(new EmployeeMap());
+            builder.ApplyConfiguration(new EmployeeTerritoryMap());
+            builder.ApplyConfiguration(new OrderDetailMap());
             builder.ApplyConfiguration(new OrderMap());
-            builder.ApplyConfiguration(new ProductsMap());
+            builder.ApplyConfiguration(new ProductMap());
             builder.ApplyConfiguration(new RegionMap());
             builder.ApplyConfiguration(new ShippersMap());
-            builder.ApplyConfiguration(new SuppliersMap());
-            builder.ApplyConfiguration(new TerritoriesMap());
+            builder.ApplyConfiguration(new SupplierMap());
+            builder.ApplyConfiguration(new TerritoryMap());
         }
     }
 }

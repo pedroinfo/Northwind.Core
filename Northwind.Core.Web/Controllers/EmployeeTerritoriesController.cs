@@ -22,7 +22,7 @@ namespace Northwind.Core.Web.Controllers
         // GET: EmployeeTerritories
         public async Task<IActionResult> Index()
         {
-            var northwindContext = _context.EmployeeTerritories.Include(e => e.Employee).Include(e => e.Territory);
+            var northwindContext = _context.EmployeeTerritory.Include(e => e.Employee).Include(e => e.Territory);
             return View(await northwindContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var employeeTerritories = await _context.EmployeeTerritories
+            var employeeTerritories = await _context.EmployeeTerritory
                 .Include(e => e.Employee)
                 .Include(e => e.Territory)
                 .FirstOrDefaultAsync(m => m.EmployeeId == id);
@@ -46,17 +46,13 @@ namespace Northwind.Core.Web.Controllers
             return View(employeeTerritories);
         }
 
-        // GET: EmployeeTerritories/Create
         public IActionResult Create()
         {
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FirstName");
-            ViewData["TerritoryId"] = new SelectList(_context.Territories, "TerritoryId", "TerritoryId");
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FirstName");
+            ViewData["TerritoryId"] = new SelectList(_context.Territory, "TerritoryId", "TerritoryId");
             return View();
         }
 
-        // POST: EmployeeTerritories/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("EmployeeId,TerritoryId")] EmployeeTerritories employeeTerritories)
@@ -67,8 +63,8 @@ namespace Northwind.Core.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FirstName", employeeTerritories.EmployeeId);
-            ViewData["TerritoryId"] = new SelectList(_context.Territories, "TerritoryId", "TerritoryId", employeeTerritories.TerritoryId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FirstName", employeeTerritories.EmployeeId);
+            ViewData["TerritoryId"] = new SelectList(_context.Territory, "TerritoryId", "TerritoryId", employeeTerritories.TerritoryId);
             return View(employeeTerritories);
         }
 
@@ -80,19 +76,17 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var employeeTerritories = await _context.EmployeeTerritories.FindAsync(id);
+            var employeeTerritories = await _context.EmployeeTerritory.FindAsync(id);
             if (employeeTerritories == null)
             {
                 return NotFound();
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FirstName", employeeTerritories.EmployeeId);
-            ViewData["TerritoryId"] = new SelectList(_context.Territories, "TerritoryId", "TerritoryId", employeeTerritories.TerritoryId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FirstName", employeeTerritories.EmployeeId);
+            ViewData["TerritoryId"] = new SelectList(_context.Territory, "TerritoryId", "TerritoryId", employeeTerritories.TerritoryId);
             return View(employeeTerritories);
         }
 
-        // POST: EmployeeTerritories/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,TerritoryId")] EmployeeTerritories employeeTerritories)
@@ -122,8 +116,8 @@ namespace Northwind.Core.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FirstName", employeeTerritories.EmployeeId);
-            ViewData["TerritoryId"] = new SelectList(_context.Territories, "TerritoryId", "TerritoryId", employeeTerritories.TerritoryId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "EmployeeId", "FirstName", employeeTerritories.EmployeeId);
+            ViewData["TerritoryId"] = new SelectList(_context.Territory, "TerritoryId", "TerritoryId", employeeTerritories.TerritoryId);
             return View(employeeTerritories);
         }
 
@@ -135,7 +129,7 @@ namespace Northwind.Core.Web.Controllers
                 return NotFound();
             }
 
-            var employeeTerritories = await _context.EmployeeTerritories
+            var employeeTerritories = await _context.EmployeeTerritory
                 .Include(e => e.Employee)
                 .Include(e => e.Territory)
                 .FirstOrDefaultAsync(m => m.EmployeeId == id);
@@ -152,15 +146,15 @@ namespace Northwind.Core.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var employeeTerritories = await _context.EmployeeTerritories.FindAsync(id);
-            _context.EmployeeTerritories.Remove(employeeTerritories);
+            var employeeTerritories = await _context.EmployeeTerritory.FindAsync(id);
+            _context.EmployeeTerritory.Remove(employeeTerritories);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool EmployeeTerritoriesExists(int id)
         {
-            return _context.EmployeeTerritories.Any(e => e.EmployeeId == id);
+            return _context.EmployeeTerritory.Any(e => e.EmployeeId == id);
         }
     }
 }

@@ -49,7 +49,7 @@ namespace Northwind.Core.Web.Controllers
         // GET: CustomerCustomerDemo/Create
         public IActionResult Create()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId");
             ViewData["CustomerTypeId"] = new SelectList(_context.CustomerDemographics, "CustomerTypeId", "CustomerTypeId");
             return View();
         }
@@ -67,7 +67,7 @@ namespace Northwind.Core.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", customerCustomerDemo.CustomerId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId", customerCustomerDemo.CustomerId);
             ViewData["CustomerTypeId"] = new SelectList(_context.CustomerDemographics, "CustomerTypeId", "CustomerTypeId", customerCustomerDemo.CustomerTypeId);
             return View(customerCustomerDemo);
         }
@@ -85,7 +85,7 @@ namespace Northwind.Core.Web.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", customerCustomerDemo.CustomerId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId", customerCustomerDemo.CustomerId);
             ViewData["CustomerTypeId"] = new SelectList(_context.CustomerDemographics, "CustomerTypeId", "CustomerTypeId", customerCustomerDemo.CustomerTypeId);
             return View(customerCustomerDemo);
         }
@@ -122,7 +122,7 @@ namespace Northwind.Core.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", customerCustomerDemo.CustomerId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId", customerCustomerDemo.CustomerId);
             ViewData["CustomerTypeId"] = new SelectList(_context.CustomerDemographics, "CustomerTypeId", "CustomerTypeId", customerCustomerDemo.CustomerTypeId);
             return View(customerCustomerDemo);
         }

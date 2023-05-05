@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class CustomerDemographicsMap : IEntityTypeConfiguration<CustomerDemographics>
+    public class CustomerDemographicMap : IEntityTypeConfiguration<CustomerDemographics>
     {
         public void Configure(EntityTypeBuilder<CustomerDemographics> builder)
         {

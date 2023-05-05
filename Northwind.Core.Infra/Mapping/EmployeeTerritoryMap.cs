@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class EmployeeTerritoriesMap : IEntityTypeConfiguration<EmployeeTerritories>
+    public class EmployeeTerritoryMap : IEntityTypeConfiguration<EmployeeTerritories>
     {
         public void Configure(EntityTypeBuilder<EmployeeTerritories> builder)
         {
