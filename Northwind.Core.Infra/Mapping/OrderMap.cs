@@ -4,9 +4,9 @@ using Northwind.Core.Domain.Entities;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class OrderMap : IEntityTypeConfiguration<Orders>
+    public class OrderMap : IEntityTypeConfiguration<Order>
     {
-        public void Configure(EntityTypeBuilder<Orders> builder)
+        public void Configure(EntityTypeBuilder<Order> builder)
         {
             
                 builder.HasKey(e => e.OrderId);

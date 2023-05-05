@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Northwind.Core.Domain.Entities
 {
-    public class Territories
+    public class Territory
     {
-        public Territories()
+        public Territory()
         {
             EmployeeTerritories = new HashSet<EmployeeTerritories>();
         }

@@ -7,7 +7,7 @@ namespace Northwind.Core.Domain.Entities
     {
         public Category()
         {
-            Products = new HashSet<Products>();
+            Products = new HashSet<Product>();
         }
 
         public int CategoryId { get; set; }
@@ -15,6 +15,6 @@ namespace Northwind.Core.Domain.Entities
         public string Description { get; set; }
         public byte[] Picture { get; set; }
 
-        public ICollection<Products> Products { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

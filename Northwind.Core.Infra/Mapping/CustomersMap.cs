@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class CustomersMap : IEntityTypeConfiguration<Customers>
+    public class CustomersMap : IEntityTypeConfiguration<Customer>
     {
-        public void Configure(EntityTypeBuilder<Customers> builder)
+        public void Configure(EntityTypeBuilder<Customer> builder)
         {
 
             builder.HasKey(e => e.CustomerId);

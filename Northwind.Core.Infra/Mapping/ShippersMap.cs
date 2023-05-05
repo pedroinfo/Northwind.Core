@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class ShippersMap : IEntityTypeConfiguration<Shippers>
+    public class ShippersMap : IEntityTypeConfiguration<Shipper>
     {
-        public void Configure(EntityTypeBuilder<Shippers> builder)
+        public void Configure(EntityTypeBuilder<Shipper> builder)
         {
             builder.HasKey(e => e.ShipperId);
 

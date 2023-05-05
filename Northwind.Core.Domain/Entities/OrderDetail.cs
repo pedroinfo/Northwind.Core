@@ -1,10 +1,8 @@
 ﻿using Northwind.Core.Domain.Entities;
-using System;
-using System.Collections.Generic;
 
 namespace Northwind.Core.Domain
 {
-    public class OrderDetails
+    public class OrderDetail
     {
         public int OrderId { get; set; }
         public int ProductId { get; set; }
@@ -12,7 +10,7 @@ namespace Northwind.Core.Domain
         public short Quantity { get; set; }
         public float Discount { get; set; }
 
-        public Orders Order { get; set; }
-        public Products Product { get; set; }
+        public Order Order { get; set; }
+        public Product Product { get; set; }
     }
 }

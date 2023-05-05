@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class EmployeesMap : IEntityTypeConfiguration<Employees>
+    public class EmployeesMap : IEntityTypeConfiguration<Employee>
     {
-        public void Configure(EntityTypeBuilder<Employees> builder)
+        public void Configure(EntityTypeBuilder<Employee> builder)
         {
             builder.HasKey(e => e.EmployeeId);
 

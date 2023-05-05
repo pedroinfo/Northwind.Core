@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class ProductsMap : IEntityTypeConfiguration<Products>
+    public class ProductsMap : IEntityTypeConfiguration<Product>
     {
-        public void Configure(EntityTypeBuilder<Products> builder)
+        public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasKey(e => e.ProductId);
 

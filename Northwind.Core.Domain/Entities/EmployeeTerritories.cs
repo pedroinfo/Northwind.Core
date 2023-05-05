@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Northwind.Core.Domain.Entities
+﻿namespace Northwind.Core.Domain.Entities
 {
     public class EmployeeTerritories
     {
         public int EmployeeId { get; set; }
         public string TerritoryId { get; set; }
 
-        public Employees Employee { get; set; }
-        public Territories Territory { get; set; }
+        public Employee Employee { get; set; }
+        public Territory Territory { get; set; }
     }
 }

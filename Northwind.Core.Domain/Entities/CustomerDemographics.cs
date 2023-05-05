@@ -11,7 +11,7 @@ namespace Northwind.Core.Domain.Entities
         }
 
         public string CustomerTypeId { get; set; }
-        public string CustomerDesc { get; set; }
+        public string CustomerDescription { get; set; }
 
         public ICollection<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
     }

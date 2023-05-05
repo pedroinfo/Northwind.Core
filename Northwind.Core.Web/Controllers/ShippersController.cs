@@ -54,7 +54,7 @@ namespace Northwind.Core.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ShipperId,CompanyName,Phone")] Shippers shippers)
+        public async Task<IActionResult> Create([Bind("ShipperId,CompanyName,Phone")] Shipper shippers)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Northwind.Core.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ShipperId,CompanyName,Phone")] Shippers shippers)
+        public async Task<IActionResult> Edit(int id, [Bind("ShipperId,CompanyName,Phone")] Shipper shippers)
         {
             if (id != shippers.ShipperId)
             {

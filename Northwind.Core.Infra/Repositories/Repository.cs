@@ -20,71 +20,68 @@ namespace Northwind.Core.Infra.Repositories
             DbSet = db.Set<TEntity>();
         }
 
-        public async Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> Search(Expression<Func<TEntity, bool>> predicate)
         {
             return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
         }
 
-        public virtual async Task<TEntity> ObterPorId(string id)
+        public virtual async Task<TEntity> GetById(string id)
         {
             return await DbSet.FindAsync(id);
         }
-        public virtual async Task<TEntity> ObterPorId_Int(int id)
+        public virtual async Task<TEntity> GetById(int id)
         {
             return await DbSet.FindAsync(id);
         }
-        public virtual async Task<TEntity> ObterPorId_Guid(Guid id)
+        public virtual async Task<TEntity> GetById(Guid id)
         {
             return await DbSet.FindAsync(id);
         }
 
-        public virtual async Task<List<TEntity>> ObterTodos()
+        public virtual async Task<List<TEntity>> GetAll()
         {
-            //return await DbSet.ToListAsync();
             return await DbSet.ToListAsync();
         }
 
-        public virtual async Task Adicionar(TEntity entity)
+        public virtual async Task Add(TEntity entity)
         {
             DbSet.Add(entity);
             await SaveChanges();
         }
 
-        public virtual async Task Atualizar(TEntity entity)
+        public virtual async Task Update(TEntity entity)
         {
             //DbSet.Update(entity); // se não utilizar o EF atualizará na query apenas os campos alterados, se necessário, avaliar não usar para maior desempenho
             await SaveChanges();
         }
 
-        public virtual async Task Remover(string id)
+        public virtual async Task RemoveById(string id)
         {
-            DbSet.Remove(await DbSet.FindAsync(id)); //Consulta objeto e entrega para exclusão
-            //DbSet.Remove(new TEntity { Id = id });
+            DbSet.Remove(await DbSet.FindAsync(id)); 
             await SaveChanges();
         }
 
-        public virtual async Task Remover_Int(int id)
+        public virtual async Task RemoveById(int id)
         {
-            DbSet.Remove(await DbSet.FindAsync(id)); //Consulta objeto e entrega para exclusão
-            //DbSet.Remove(new TEntity { Id = id });
+            DbSet.Remove(await DbSet.FindAsync(id));
             await SaveChanges();
         }
-        public virtual async Task Remover_Guid(Guid id)
+        public virtual async Task RemoveById(Guid id)
         {
             DbSet.Remove(await DbSet.FindAsync(id));
             await SaveChanges();
         }
 
-        public async Task<bool> Existe(string id)
+        public async Task<bool> Exists(string id)
         {
-            var resultado = await ObterPorId(id);
-            return resultado is null ? false : true;
+            var result = await GetById(id);
+            return result is null ? false : true;
         }
 
-        public async Task<bool> Existe_Guid(Guid id)
+        public async Task<bool> Exists(Guid id)
         {
-            var resultado = await ObterPorId_Guid(id);
-            return resultado is null ? false : true;
+            var result = await GetById(id);
+            return result is null ? false : true;
         }
 
 

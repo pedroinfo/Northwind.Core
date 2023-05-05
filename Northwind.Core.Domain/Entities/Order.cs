@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Northwind.Core.Domain.Entities
 {
-    public class Orders
+    public class Order
     {
-        public Orders()
+        public Order()
         {
-            OrderDetails = new HashSet<OrderDetails>();
+            OrderDetails = new HashSet<OrderDetail>();
         }
 
         public int OrderId { get; set; }
@@ -25,9 +25,9 @@ namespace Northwind.Core.Domain.Entities
         public string ShipPostalCode { get; set; }
         public string ShipCountry { get; set; }
 
-        public Customers Customer { get; set; }
-        public Employees Employee { get; set; }
-        public Shippers ShipViaNavigation { get; set; }
-        public ICollection<OrderDetails> OrderDetails { get; set; }
+        public Customer Customer { get; set; }
+        public Employee Employee { get; set; }
+        public Shipper ShipViaNavigation { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

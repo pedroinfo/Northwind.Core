@@ -19,7 +19,7 @@ namespace Northwind.Core.Infra.Mapping
                 .HasMaxLength(10)
                 .ValueGeneratedNever();
 
-            builder.Property(e => e.CustomerDesc).HasColumnType("ntext");
+            builder.Property(e => e.CustomerDescription).HasColumnType("ntext");
         }
     }
 }

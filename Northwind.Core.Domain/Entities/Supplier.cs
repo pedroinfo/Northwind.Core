@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Northwind.Core.Domain.Entities
 {
-    public class Suppliers
+    public class Supplier
     {
-        public Suppliers()
+        public Supplier()
         {
-            Products = new HashSet<Products>();
+            Products = new HashSet<Product>();
         }
 
         public int SupplierId { get; set; }
@@ -23,6 +22,6 @@ namespace Northwind.Core.Domain.Entities
         public string Fax { get; set; }
         public string HomePage { get; set; }
 
-        public ICollection<Products> Products { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

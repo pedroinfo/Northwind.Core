@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Northwind.Core.Domain.Entities
 {
-    public class Shippers
+    public class Shipper
     {
-        public Shippers()
+        public Shipper()
         {
-            Orders = new HashSet<Orders>();
+            Orders = new HashSet<Order>();
         }
 
         public int ShipperId { get; set; }
         public string CompanyName { get; set; }
         public string Phone { get; set; }
 
-        public ICollection<Orders> Orders { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class TerritoriesMap : IEntityTypeConfiguration<Territories>
+    public class TerritoriesMap : IEntityTypeConfiguration<Territory>
     {
-        public void Configure(EntityTypeBuilder<Territories> builder)
+        public void Configure(EntityTypeBuilder<Territory> builder)
         {
             builder.HasKey(e => e.TerritoryId)
                     .ForSqlServerIsClustered(false);

@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Northwind.Core.Domain.Entities
 {
-    public class Customers
+    public class Customer
     {
-        public Customers()
+        public Customer()
         {
             CustomerCustomerDemo = new HashSet<CustomerCustomerDemo>();
-            Orders = new HashSet<Orders>();
+            Orders = new HashSet<Order>();
         }
 
         public string CustomerId { get; set; }
@@ -24,6 +23,6 @@ namespace Northwind.Core.Domain.Entities
         public string Fax { get; set; }
 
         public ICollection<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
-        public ICollection<Orders> Orders { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

@@ -14,16 +14,16 @@ namespace Northwind.Core.Infra.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
         public DbSet<CustomerDemographics> CustomerDemographics { get; set; }
-        public DbSet<Customers> Customers { get; set; }
-        public DbSet<Employees> Employees { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<EmployeeTerritories> EmployeeTerritories { get; set; }
-        public DbSet<OrderDetails> OrderDetails { get; set; }
-        public DbSet<Orders> Orders { get; set; }
-        public DbSet<Products> Products { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
         public DbSet<Region> Region { get; set; }
-        public DbSet<Shippers> Shippers { get; set; }
-        public DbSet<Suppliers> Suppliers { get; set; }
-        public DbSet<Territories> Territories { get; set; }
+        public DbSet<Shipper> Shippers { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<Territory> Territories { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
