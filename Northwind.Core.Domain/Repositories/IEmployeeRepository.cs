@@ -2,7 +2,7 @@
 
 namespace Northwind.Core.Domain.Repositories
 {
-    public interface IRegionRepository : IRepository<Region>
+    public interface IEmployeeRepository : IRepository<Employee>
     {
     }
 }

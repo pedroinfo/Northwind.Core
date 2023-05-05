@@ -7,7 +7,7 @@ namespace Northwind.Core.Domain.Entities
     {
         public Employee()
         {
-            EmployeeTerritories = new HashSet<EmployeeTerritories>();
+            EmployeeTerritories = new HashSet<EmployeeTerritory>();
             InverseReportsToNavigation = new HashSet<Employee>();
             Orders = new HashSet<Order>();
         }
@@ -32,7 +32,7 @@ namespace Northwind.Core.Domain.Entities
         public string PhotoPath { get; set; }
 
         public Employee ReportsToNavigation { get; set; }
-        public ICollection<EmployeeTerritories> EmployeeTerritories { get; set; }
+        public ICollection<EmployeeTerritory> EmployeeTerritories { get; set; }
         public ICollection<Employee> InverseReportsToNavigation { get; set; }
         public ICollection<Order> Orders { get; set; }
     }

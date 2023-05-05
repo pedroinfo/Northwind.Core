@@ -1,6 +1,6 @@
 ﻿namespace Northwind.Core.Domain.Entities
 {
-    public class EmployeeTerritories
+    public class EmployeeTerritory
     {
         public int EmployeeId { get; set; }
         public string TerritoryId { get; set; }

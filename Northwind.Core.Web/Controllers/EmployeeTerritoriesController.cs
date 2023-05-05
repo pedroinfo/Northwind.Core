@@ -55,7 +55,7 @@ namespace Northwind.Core.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeId,TerritoryId")] EmployeeTerritories employeeTerritories)
+        public async Task<IActionResult> Create([Bind("EmployeeId,TerritoryId")] EmployeeTerritory employeeTerritories)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace Northwind.Core.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,TerritoryId")] EmployeeTerritories employeeTerritories)
+        public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,TerritoryId")] EmployeeTerritory employeeTerritories)
         {
             if (id != employeeTerritories.EmployeeId)
             {

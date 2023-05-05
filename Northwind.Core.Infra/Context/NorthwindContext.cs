@@ -16,7 +16,7 @@ namespace Northwind.Core.Infra.Context
         public DbSet<CustomerDemographics> CustomerDemographics { get; set; }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Employee> Employee { get; set; }
-        public DbSet<EmployeeTerritories> EmployeeTerritory { get; set; }
+        public DbSet<EmployeeTerritory> EmployeeTerritory { get; set; }
         public DbSet<OrderDetail> OrderDetail { get; set; }
         public DbSet<Order> Order { get; set; }
         public DbSet<Product> Product { get; set; }

@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Northwind.Core.Infra.Mapping
 {
-    public class EmployeeTerritoryMap : IEntityTypeConfiguration<EmployeeTerritories>
+    public class EmployeeTerritoryMap : IEntityTypeConfiguration<EmployeeTerritory>
     {
-        public void Configure(EntityTypeBuilder<EmployeeTerritories> builder)
+        public void Configure(EntityTypeBuilder<EmployeeTerritory> builder)
         {
             builder.HasKey(e => new { e.EmployeeId, e.TerritoryId })
                     .ForSqlServerIsClustered(false);
@@ -19,7 +19,7 @@ namespace Northwind.Core.Infra.Mapping
             builder.Property(e => e.TerritoryId)
                 .HasColumnName("TerritoryID")
                 .HasMaxLength(20);
-
+            /*
             builder.HasOne(d => d.Employee)
                 .WithMany(p => p.EmployeeTerritories)
                 .HasForeignKey(d => d.EmployeeId)
@@ -30,7 +30,7 @@ namespace Northwind.Core.Infra.Mapping
                 .WithMany(p => p.EmployeeTerritories)
                 .HasForeignKey(d => d.TerritoryId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_EmployeeTerritories_Territories");
+                .HasConstraintName("FK_EmployeeTerritories_Territories");*/
         }
     }
 }

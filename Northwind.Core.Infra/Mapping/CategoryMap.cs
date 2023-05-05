@@ -8,7 +8,7 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-
+            builder.ToTable("Categories");
             builder.HasKey(e => e.CategoryId);
 
             builder.HasIndex(e => e.CategoryName)

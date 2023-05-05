@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Northwind.Core.Domain.Entities;
 
 namespace Northwind.Core.Domain.Repositories
 {
-    class ISuppliersRepository
+    public interface ISuppliersRepository : IRepository<Supplier>
     {
     }
 }

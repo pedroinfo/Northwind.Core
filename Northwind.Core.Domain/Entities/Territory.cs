@@ -7,7 +7,7 @@ namespace Northwind.Core.Domain.Entities
     {
         public Territory()
         {
-            EmployeeTerritories = new HashSet<EmployeeTerritories>();
+            EmployeeTerritories = new HashSet<EmployeeTerritory>();
         }
 
         public string TerritoryId { get; set; }
@@ -15,6 +15,6 @@ namespace Northwind.Core.Domain.Entities
         public int RegionId { get; set; }
 
         public Region Region { get; set; }
-        public ICollection<EmployeeTerritories> EmployeeTerritories { get; set; }
+        public ICollection<EmployeeTerritory> EmployeeTerritories { get; set; }
     }
 }
