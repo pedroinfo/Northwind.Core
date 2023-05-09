@@ -2,20 +2,12 @@
 using Northwind.Core.Domain.Repositories;
 using Northwind.Core.Domain.Services;
 
-namespace Northwind.Core.Services.Services
+namespace Northwind.Core.Service.Services
 {
-    public class CategoryService : ICategoryService
+    public class CategoryService : BaseService<Category>, ICategoryService
     {
-        private readonly ICategoryRepository _categoryRepository;
-
-        public CategoryService(ICategoryRepository categoryRepository)
+        public CategoryService(IRepositoryGeneric<Category> repository) : base(repository)
         {
-            _categoryRepository = categoryRepository;
-        }
-
-        public void AddCategory(Category category)
-        {
-            _categoryRepository.Add(category);
         }
     }
 }

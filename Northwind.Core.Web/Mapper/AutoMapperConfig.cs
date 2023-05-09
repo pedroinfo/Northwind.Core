@@ -8,7 +8,7 @@ namespace Northwind.Core.Web.Mapper
     {
         public AutoMapperConfig()
         {
-            CreateMap<Category, CategoryViewModel>();
+            CreateMap<Category, CategoryViewModel>().ReverseMap();
         }
     }
 }

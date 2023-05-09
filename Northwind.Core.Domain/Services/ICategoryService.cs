@@ -2,8 +2,8 @@
 
 namespace Northwind.Core.Domain.Services
 {
-    public interface ICategoryService
+    public interface ICategoryService : IBaseService<Category>
     {
-        public void AddCategory(Category category);
+   
     }
 }

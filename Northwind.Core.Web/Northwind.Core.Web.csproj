@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Northwind.Core.Domain\Northwind.Core.Domain.csproj" />
     <ProjectReference Include="..\Northwind.Core.Infra\Northwind.Core.Infra.csproj" />
+    <ProjectReference Include="..\Northwind.Core.Services\Northwind.Core.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

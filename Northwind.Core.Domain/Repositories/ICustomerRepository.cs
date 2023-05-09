@@ -2,7 +2,7 @@
 
 namespace Northwind.Core.Domain.Repositories
 {
-    public interface ICustomerRepository : IRepository<Customer>
+    public interface ICustomerRepository : IRepositoryGeneric<Customer>
     {
     }
 }

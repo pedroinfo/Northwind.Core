@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Northwind.Core.Infra.Repositories
 {
-    public class ProductRepository : Repository<Product>, IProductRepository
+    public class ProductRepository : RepositoryGeneric<Product>, IProductRepository
     {
         public ProductRepository(NorthwindContext context) : base(context) { }
 

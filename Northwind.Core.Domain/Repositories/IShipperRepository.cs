@@ -2,7 +2,7 @@
 
 namespace Northwind.Core.Domain.Repositories
 {
-    public interface IShipperRepository : IRepository<Shipper>
+    public interface IShipperRepository : IRepositoryGeneric<Shipper>
     {
     }
 }

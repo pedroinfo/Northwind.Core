@@ -2,7 +2,7 @@
 
 namespace Northwind.Core.Domain.Repositories
 {
-    public interface ISuppliersRepository : IRepository<Supplier>
+    public interface ISuppliersRepository : IRepositoryGeneric<Supplier>
     {
     }
 }

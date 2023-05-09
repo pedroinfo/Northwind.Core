@@ -11,7 +11,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Northwind.Core.Infra.Context;
 using AutoMapper;
-
+using Northwind.Core.Domain.Services;
+using Northwind.Core.Service.Services;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Northwind.Core.Web.Configurations;
 
 namespace Northwind.Core.Web
 {
@@ -37,7 +40,7 @@ namespace Northwind.Core.Web
             services.AddMvc();
             services.AddRazorPages().AddRazorRuntimeCompilation();
 
-            services.AddScoped<NorthwindContext, NorthwindContext>();
+            services.ResolveDependencies();
 
 
             services.AddAutoMapper(typeof(Startup));

@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Northwind.Core.Infra.Repositories
 {
-    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class, new()
+    public abstract class RepositoryGeneric<TEntity> : IRepositoryGeneric<TEntity> where TEntity : class, new()
     {
         protected readonly NorthwindContext Db;
         protected readonly DbSet<TEntity> DbSet;
 
-        protected Repository(NorthwindContext db)
+        public RepositoryGeneric(NorthwindContext db)
         {
             Db = db;
             DbSet = db.Set<TEntity>();

@@ -1,19 +1,26 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Core.Domain.Entities;
+using Northwind.Core.Domain.Services;
 using Northwind.Core.Infra.Context;
+using Northwind.Core.Web.ViewModels;
 
 namespace Northwind.Core.Web.Controllers
 {
     public class CategoriesController : Controller
     {
         private readonly NorthwindContext _context;
+        private readonly IMapper _mapper;
+        private readonly ICategoryService _categoryService;
 
-        public CategoriesController(NorthwindContext context)
+        public CategoriesController(NorthwindContext context, IMapper mapper, ICategoryService categoryService)
         {
             _context = context;
+            _mapper = mapper;
+            _categoryService = categoryService;
         }
 
         public async Task<IActionResult> Index()
@@ -52,15 +59,16 @@ namespace Northwind.Core.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,Description,Picture")] Category categories)
+        public async Task<IActionResult> Create(CategoryViewModel categoryViewModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(categories);
-                await _context.SaveChangesAsync();
+                var category = _mapper.Map<Category>(categoryViewModel);    
+                
+                await _categoryService.Add(category);
                 return RedirectToAction(nameof(Index));
             }
-            return View(categories);
+            return View(categoryViewModel);
         }
 
         public async Task<IActionResult> Edit(int? id)

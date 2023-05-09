@@ -2,7 +2,7 @@
 
 namespace Northwind.Core.Domain.Repositories
 {
-    public interface ITerritoryRepository : IRepository<Territory>
+    public interface ITerritoryRepository : IRepositoryGeneric<Territory>
     {
     }
 }

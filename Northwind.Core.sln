@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Core.Test", "Nort
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Core.Shared", "Northwind.Core.Shared\Northwind.Core.Shared.csproj", "{6CB0C5C3-F055-446A-B1AF-A08BF0C40C9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Core.Services", "Northwind.Core.Services\Northwind.Core.Services.csproj", "{253AEB5E-3679-4735-8917-E90C463A6E43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Core.Service", "Northwind.Core.Services\Northwind.Core.Service.csproj", "{253AEB5E-3679-4735-8917-E90C463A6E43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
