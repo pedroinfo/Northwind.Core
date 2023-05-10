@@ -9,6 +9,9 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<OrderDetail> builder)
         {
+
+            builder.ToTable("Order Details");
+
             builder.HasKey(e => new { e.OrderId, e.ProductId });
 
              builder.ToTable("Order Details");

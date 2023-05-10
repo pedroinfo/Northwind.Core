@@ -11,6 +11,8 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<Employee> builder)
         {
+            builder.ToTable("Employees");
+
             builder.HasKey(e => e.EmployeeId);
 
             builder.HasIndex(e => e.LastName)

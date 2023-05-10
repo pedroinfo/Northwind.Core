@@ -8,6 +8,8 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<Shipper> builder)
         {
+            builder.ToTable("Shippers");
+
             builder.HasKey(e => e.ShipperId);
 
             builder.Property(e => e.ShipperId).HasColumnName("ShipperID");

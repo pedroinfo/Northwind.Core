@@ -11,6 +11,8 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<EmployeeTerritory> builder)
         {
+            builder.ToTable("EmployeeTerritories");
+
             builder.HasKey(e => new { e.EmployeeId, e.TerritoryId })
                     .ForSqlServerIsClustered(false);
 

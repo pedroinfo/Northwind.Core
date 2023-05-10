@@ -20,7 +20,7 @@ namespace Northwind.Core.Domain.Services
 
         public virtual Task Add(TEntity entity)
         {
-            return _repository.Add(entity);
+            return _repository.InsertAsync(entity);
         }
 
         public int Count(Expression<Func<TEntity, bool>> filter)
@@ -30,12 +30,18 @@ namespace Northwind.Core.Domain.Services
 
         public virtual Task<bool> Exists(string id)
         {
-            return  _repository.Exists(id);
+            return null;
+          //  return  _repository.Any(id);
         }
 
         public virtual Task<bool> Exists(Guid id)
         {
             throw new NotImplementedException();
+        }
+
+        public Task<int> Exists(int id)
+        {
+            return null; // _repository.Any(x=)
         }
 
         public virtual Task<List<TEntity>> GetAll()

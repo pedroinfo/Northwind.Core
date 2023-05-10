@@ -11,6 +11,9 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<CustomerDemographics> builder)
         {
+
+            builder.ToTable("CustomerDemographics");
+
             builder.HasKey(e => e.CustomerTypeId)
                    .ForSqlServerIsClustered(false);
 

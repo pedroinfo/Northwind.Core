@@ -11,6 +11,7 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<Supplier> builder)
         {
+            builder.ToTable("Suppliers");
 
             builder.HasKey(e => e.SupplierId);
 

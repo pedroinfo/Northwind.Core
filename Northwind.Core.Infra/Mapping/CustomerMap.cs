@@ -9,6 +9,8 @@ namespace Northwind.Core.Infra.Mapping
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
 
+            builder.ToTable("Customers");
+
             builder.HasKey(e => e.CustomerId);
 
             builder.HasIndex(e => e.City)

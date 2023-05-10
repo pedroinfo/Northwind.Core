@@ -8,6 +8,8 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<Territory> builder)
         {
+            builder.ToTable("Territories");
+
             builder.HasKey(e => e.TerritoryId)
                     .ForSqlServerIsClustered(false);
 

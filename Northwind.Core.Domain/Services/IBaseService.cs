@@ -18,6 +18,8 @@ namespace Northwind.Core.Domain.Services
         Task RemoveById(int id);
         Task RemoveById(Guid id);
         Task<IEnumerable<TEntity>> Search(Expression<Func<TEntity, bool>> predicate);
+
+        Task<int> Exists(int id);
         Task<bool> Exists(string id);
         Task<bool> Exists(Guid id);
     }

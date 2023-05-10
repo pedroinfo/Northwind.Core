@@ -8,6 +8,8 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
+            builder.ToTable("Products");
+
             builder.HasKey(e => e.ProductId);
 
             builder.HasIndex(e => e.CategoryId)

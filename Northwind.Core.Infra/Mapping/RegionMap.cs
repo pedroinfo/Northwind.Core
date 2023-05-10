@@ -11,6 +11,8 @@ namespace Northwind.Core.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<Region> builder)
         {
+            builder.ToTable("Region");
+
             builder.HasKey(e => e.RegionId)
                     .ForSqlServerIsClustered(false);
 
