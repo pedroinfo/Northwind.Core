@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Northwind.Core.Service.Services
 {
-    internal class ProductService
+    public class ProductService
     {
     }
 }

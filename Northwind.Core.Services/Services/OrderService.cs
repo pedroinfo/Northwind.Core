@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Northwind.Core.Service.Services
 {
-    internal class OrderService
+    public class OrderService
     {
+        private 
+        public OrderService()
+        {
+
+        }
     }
 }
